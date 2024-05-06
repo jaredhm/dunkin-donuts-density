@@ -1,0 +1,28 @@
+{
+  "name": "dunkin-donuts-density",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.0",
+    "assert": "^2.1.0",
+    "axios": "^1.6.8",
+    "axios-retry": "^4.1.0",
+    "core-js": "^3.37.0",
+    "csv-parse": "^5.5.5",
+    "dotenv": "^16.4.5",
+    "pino": "^9.0.0",
+    "streaming-iterables": "^8.0.1"
+  }
+}
