@@ -274,6 +274,7 @@ export default class DunkinDonutsDensity {
     const objects = fs.createReadStream(path.join(this.dataDir, placesFilename))
       .pipe(parser())
       .pipe(streamArray());
+    let objectsInserted = 0;
     objects.on(
       'data',
       (object: { value: Place }) => {
@@ -287,9 +288,15 @@ export default class DunkinDonutsDensity {
             object.value,
             geocodeResponse.data.results[0].address_components
           )
+        }).then(() => {
+          objectsInserted++;
+          if (objectsInserted % 10 === 0) {
+            this.logger.debug(`Inserted ${objectsInserted} geocoded Dunkin Donuts places`);
+          }
         })
       }
     );
     await new Promise((resolve) => objects.on('end',resolve));
+    this.logger.info(`Inserted ${objectsInserted} total geocoded Dunkin Donuts places`)
   }
 }
